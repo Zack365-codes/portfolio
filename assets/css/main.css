@@ -11,7 +11,7 @@
   --surface-dark: #0b1120;
 
   --heading-color: #111827;
-  --default-color: #4b5563;
+  --default-color: #3f4957;
   --contrast-color: #ffffff;
 
   --border-color: rgba(15, 23, 42, 0.08);
@@ -283,10 +283,10 @@ img {
   margin: 0 auto 20px;
   color: #fff;
   font-family: "Poppins", sans-serif;
-  font-size: clamp(55px, 7vw, 90px);
+  font-size: clamp(45px, 10vw, 30px);
   font-weight: 800;
   line-height: 1.05;
-  letter-spacing: -2px;
+  letter-spacing: 1px;
 }
 
 .hero-highlight {
@@ -650,93 +650,389 @@ img {
 /* =========================================================
    09. RESUME
    ========================================================= */
+/* =========================
+   RESUME SECTION
+========================= */
+/* =========================================================
+   RESUME / JOURNEY SECTION
+========================================================= */
 
 .resume {
   background: var(--surface-color);
 }
 
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.resume .section-title {
+  margin-bottom: 65px;
+}
+
+.resume .section-title h2 {
+  margin-bottom: 12px;
+}
+
+.resume .section-title p {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   MAIN GRID
+========================================================= */
+
+.resume-row {
+  align-items: flex-start;
+}
+
+.resume-column {
+  position: relative;
+}
+
+
+/* =========================================================
+   COLUMN TITLES
+========================================================= */
+
 .resume-title {
-  margin-bottom: 30px;
+  position: relative;
+
+  margin: 0 0 32px;
+  padding-bottom: 12px;
+
   color: var(--heading-color);
+
   font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
+  line-height: 1.3;
 }
+
+
+/* Small accent line under heading */
+
+.resume-title::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 48px;
+  height: 3px;
+
+  background: var(--accent-color);
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 0 10px rgba(0, 212, 255, 0.30);
+}
+
+
+/* =========================================================
+   TIMELINE ITEM
+========================================================= */
 
 .resume-item {
   position: relative;
 
-  margin-bottom: 30px;
-  padding: 0 0 0 25px;
+  margin: 0 0 42px;
+  padding: 0 25px 4px 30px;
 
-  border-left: 2px solid rgba(0, 212, 255, 0.25);
+  border-left: 2px solid rgba(0, 212, 255, 0.20);
 
-  transition: var(--transition-normal);
+  transition:
+    padding-left 0.3s ease,
+    border-color 0.3s ease;
 }
+
+
+/* =========================================================
+   FIRST ITEMS
+   Keeps both sides visually balanced
+========================================================= */
+
+.resume-column > .resume-item:first-of-type {
+  min-height: 280px;
+}
+
+
+/* =========================================================
+   TIMELINE DOT
+========================================================= */
 
 .resume-item::before {
   content: "";
 
   position: absolute;
 
-  width: 12px;
-  height: 12px;
+  top: 2px;
+  left: -8px;
 
-  left: -7px;
-  top: 0;
+  width: 13px;
+  height: 13px;
 
   background: var(--accent-color);
 
   border: 3px solid var(--surface-color);
+
   border-radius: 50%;
 
-  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.12);
+  box-shadow:
+    0 0 0 4px rgba(0, 212, 255, 0.10),
+    0 0 12px rgba(0, 212, 255, 0.25);
 
-  transition: var(--transition-normal);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
+
+/* =========================================================
+   TIMELINE HOVER
+========================================================= */
+
 .resume-item:hover {
-  padding-left: 32px;
-  border-color: var(--accent-color);
+  padding-left: 36px;
+
+  border-left-color: var(--accent-color);
 }
 
 .resume-item:hover::before {
-  transform: scale(1.3);
+  transform: scale(1.25);
+
   box-shadow:
-    0 0 0 6px rgba(0, 212, 255, 0.12),
-    0 0 20px rgba(0, 212, 255, 0.5);
+    0 0 0 6px rgba(0, 212, 255, 0.10),
+    0 0 22px rgba(0, 212, 255, 0.50);
 }
+
+
+/* =========================================================
+   ITEM TITLE
+========================================================= */
 
 .resume-item h4 {
-  margin-bottom: 8px;
+  margin: 0 0 11px;
+
   color: var(--heading-color);
+
+  font-family: "Poppins", sans-serif;
+
   font-size: 19px;
   font-weight: 800;
+
+  line-height: 1.45;
 }
 
-.resume-item h5 {
-  display: inline-block;
 
-  margin-bottom: 12px;
-  padding: 5px 10px;
+/* =========================================================
+   TAG / LABEL
+========================================================= */
+
+.resume-item h5 {
+  display: inline-flex;
+  align-items: center;
+
+  margin: 0 0 15px;
+
+  padding: 5px 11px;
 
   color: var(--accent-color);
+
   background: rgba(0, 212, 255, 0.08);
 
-  border-radius: 5px;
+  border: 1px solid rgba(0, 212, 255, 0.13);
+
+  border-radius: 6px;
 
   font-size: 12px;
   font-weight: 700;
+
+  line-height: 1.2;
 }
 
+
+/* =========================================================
+   PARAGRAPHS
+========================================================= */
+
+.resume-item p {
+  margin: 0 0 15px;
+
+  color: var(--default-color);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+.resume-item p em {
+  color: var(--default-color);
+
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
 .resume-item ul {
+  margin: 16px 0 0;
+
   padding-left: 18px;
 }
 
 .resume-item li {
-  margin-bottom: 7px;
+  margin-bottom: 9px;
+
+  color: var(--default-color);
+
+  font-size: 15px;
+
+  line-height: 1.5;
 }
 
+
+/* =========================================================
+   SPACE BETWEEN LEFT SECTIONS
+========================================================= */
+
+.resume-column > .resume-title:not(:first-child) {
+  margin-top: 5px;
+}
+
+
+/* =========================================================
+   SPACE BETWEEN RIGHT ITEMS
+========================================================= */
+
+.resume-column > .resume-item + .resume-item {
+  margin-top: 5px;
+}
+
+
+/* =========================================================
+   SUBTLE ITEM CONTENT HOVER
+========================================================= */
+
+.resume-item h4,
+.resume-item h5,
+.resume-item p,
+.resume-item li {
+  transition: color 0.25s ease;
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .resume-column:first-child {
+    padding-right: 35px;
+  }
+
+  .resume-column:last-child {
+    padding-left: 35px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1199px) {
+
+  .resume-column:first-child {
+    padding-right: 20px;
+  }
+
+  .resume-column:last-child {
+    padding-left: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 991px) {
+
+  .resume .section-title {
+    margin-bottom: 45px;
+  }
+
+  .resume-row {
+    row-gap: 25px;
+  }
+
+  .resume-column {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .resume-column > .resume-item:first-of-type {
+    min-height: auto;
+  }
+
+  .resume-title {
+    margin-top: 20px;
+    margin-bottom: 28px;
+
+    font-size: 23px;
+  }
+
+  .resume-item {
+    margin-bottom: 35px;
+    padding-left: 27px;
+  }
+
+  .resume-item:hover {
+    padding-left: 31px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+  .resume-title {
+    font-size: 21px;
+  }
+
+  .resume-item {
+    padding-left: 24px;
+  }
+
+  .resume-item h4 {
+    font-size: 17px;
+  }
+
+  .resume-item p,
+  .resume-item li {
+    font-size: 14px;
+  }
+
+  .resume-item h5 {
+    font-size: 11px;
+  }
+
+}
 
 /* =========================================================
    10. SERVICES
@@ -1764,7 +2060,7 @@ img {
   width: 45px;
   height: 45px;
 
-  color: #07111f;
+  color: white;
   background: var(--accent-color);
 
   border-radius: 50%;
@@ -1786,6 +2082,7 @@ img {
     0 15px 30px rgba(0, 212, 255, 0.25),
     0 0 25px rgba(0, 212, 255, 0.12);
 }
+
 
 
 /* =========================================================
