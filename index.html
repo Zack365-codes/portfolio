@@ -18,9 +18,9 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@500;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -42,6 +42,8 @@
 
     <!-- Main CSS -->
     <link href="assets/css/main.css" rel="stylesheet" />
+      <!-- Interactive 3D & Draggable Cards CSS -->
+    <link href="assets/css/antigravity-3d.css" rel="stylesheet" />
   </head>
 
   <body class="index-page">
@@ -136,11 +138,10 @@
               <div class="row justify-content-between align-items-center gy-4">
                 <div class="col-lg-5">
                   <div class="profile-image-wrapper">
-                    <img
-                      src="assets/img/profile.jpeg"
+                    <img src="assets/img/profile.jpeg"
                       class="img-fluid"
                       alt="Zack - Full Stack Web Developer"
-                    />
+                    / loading="lazy">
 
                     <div class="profile-glow"></div>
                   </div>
@@ -290,6 +291,19 @@
                       aria-valuemin="0"
                       aria-valuemax="100"
                     ></div>
+                  </div>
+                </div>
+                <!-- Interactive Draggable Skill Badges -->
+                <div class="mt-4">
+                  <h6 class="text-uppercase text-muted fw-bold mb-3" style="letter-spacing: 1px; font-size: 0.8rem;">Interactive 3D Skill Deck</h6>
+                  <div class="skills-3d-grid">
+                    <div class="skill-pill-3d"><i class="bi bi-filetype-html"></i> HTML5 <span class="skill-lvl">Expert</span></div>
+                    <div class="skill-pill-3d"><i class="bi bi-filetype-css"></i> CSS3 / SCSS <span class="skill-lvl">Expert</span></div>
+                    <div class="skill-pill-3d"><i class="bi bi-bootstrap"></i> Bootstrap 5 <span class="skill-lvl">95%</span></div>
+                    <div class="skill-pill-3d"><i class="bi bi-filetype-js"></i> JavaScript <span class="skill-lvl">Modern</span></div>
+                    <div class="skill-pill-3d"><i class="bi bi-filetype-php"></i> PHP (PDO) <span class="skill-lvl">Backend</span></div>
+                    <div class="skill-pill-3d"><i class="bi bi-database"></i> MySQL <span class="skill-lvl">Relational</span></div>
+                    <div class="skill-pill-3d"><i class="bi bi-git"></i> Git / GitHub <span class="skill-lvl">VCS</span></div>
                   </div>
                 </div>
               </div>
@@ -646,11 +660,10 @@
       <!-- ================= STATS ================= -->
 
       <section id="stats" class="stats section accent-background">
-        <img
-          src="assets/img/stats-bg.jpg"
+        <img src="assets/img/stats-bg.jpg"
           alt="ZackCodes background"
           data-aos="fade-in"
-        />
+        / loading="lazy">
 
         <div
           class="container position-relative"
@@ -771,11 +784,10 @@
                     target="_blank"
                     href="https://zack365-codes.github.io/E-commerce-website/"
                   >
-                    <img
-                      src="./assets/img/portfolio/ecom.png"
+                    <img src="./assets/img/portfolio/ecom.png"
                       class="img-fluid"
                       alt="Responsive Website Project"
-                    />
+                    / loading="lazy">
                   </a>
 
                   <div class="portfolio-info">
@@ -818,11 +830,10 @@
                     target="_blank"
                     href="https://zack365-codes.github.io/counter/"
                   >
-                    <img
-                      src="assets/img/portfolio/counter.png"
+                    <img src="assets/img/portfolio/counter.png"
                       class="img-fluid"
                       alt="Modern UI Project"
-                    />
+                    / loading="lazy">
                   </a>
 
                   <div class="portfolio-info">
@@ -862,11 +873,10 @@
               >
                 <div class="portfolio-card">
                   <a target="_blank" href="https://zack365-codes.github.io/health-center/">
-                    <img
-                      src="assets/img/portfolio/health.png"
+                    <img src="assets/img/portfolio/health.png"
                       class="img-fluid"
                       alt="Web Application Project"
-                    />
+                    / loading="lazy">
                   </a>
 
                   <div class="portfolio-info">
@@ -906,11 +916,10 @@
               >
                 <div class="portfolio-card">
                  
-                  <img
-                    src="./assets/img/portfolio/stickynotes.png"
+                  <img src="./assets/img/portfolio/stickynotes.png"
                     class="img-fluid"
                     alt="Business Website Project"
-                  />
+                  / loading="lazy">
 
                   <div class="portfolio-info">
                     <div>
@@ -949,11 +958,10 @@
               >
                 <div class="portfolio-card">
                   <a href="https://zack365-codes.github.io/tic-tac-toe/"></a>
-                  <img
-                    src="./assets/img/portfolio/tictaktoe.png"
+                  <img src="./assets/img/portfolio/tictaktoe.png"
                     class="img-fluid"
                     alt="Dashboard UI Project"
-                  />
+                  / loading="lazy">
 
                   <div class="portfolio-info">
                     <div>
@@ -992,11 +1000,10 @@
               >
                 <div class="portfolio-card">
                   <a href="https://zack365-codes.github.io/Elixir/"></a>
-                  <img
-                    src="assets/img/portfolio/elixir.png"
+                  <img src="assets/img/portfolio/elixir.png"
                     class="img-fluid"
                     alt="Interactive Web Project"
-                  />
+                  / loading="lazy">
 
                   <div class="portfolio-info">
                     <div>
@@ -1310,10 +1317,9 @@
             </div>
           </div>
 
-          <form
-            action="#"
-            method="post"
-            class="php-email-form"
+          <form action="process-contact.php" method="post" class="php-email-form">
+            <!-- Anti-spam Honeypot -->
+            <input type="text" name="website_hp" style="display:none" tabindex="-1" autocomplete="off" />
             data-aos="fade-up"
             data-aos-delay="300"
           >
@@ -1422,6 +1428,17 @@
       </div>
     </footer>
 
+    <!-- ================= DRAG TOGGLE BUTTON ================= -->
+    <button
+      type="button"
+      id="dragToggleBtn"
+      class="drag-toggle-btn"
+      aria-label="Toggle Free Drag Mode"
+    >
+      <i class="bi bi-arrows-move"></i>
+      <span class="btn-text">Enable Free Drag</span>
+    </button>
+
     <!-- ================= SCROLL TOP ================= -->
 
     <a
@@ -1438,28 +1455,30 @@
 
     <!-- ================= VENDOR JS ================= -->
 
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
 
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js" defer></script>
 
-    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/aos/aos.js" defer></script>
 
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js" defer></script>
 
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
 
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
 
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
 
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
 
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
 
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
 
     <!-- Main JS -->
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
+      <!-- Interactive Draggable Cards Engine -->
+    <script src="assets/js/antigravity.js" defer></script>
   </body>
 </html>

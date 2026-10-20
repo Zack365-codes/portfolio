@@ -59,13 +59,27 @@
   });
 
   /**
-   * Preloader
+   * Performance-Optimized Preloader
+   * Dismisses as soon as DOM is ready; never blocks for multi-megabyte images
    */
   const preloader = document.querySelector('#preloader');
   if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
+    const hidePreloader = () => {
+      if (preloader.classList.contains('loaded')) return;
+      preloader.classList.add('loaded');
+      setTimeout(() => {
+        if (preloader.parentNode) preloader.remove();
+      }, 350);
+    };
+
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      hidePreloader();
+    } else {
+      document.addEventListener('DOMContentLoaded', hidePreloader, { once: true });
+    }
+    // Hard ceiling: Preloader NEVER stays visible longer than 800ms
+    setTimeout(hidePreloader, 800);
+    window.addEventListener('load', hidePreloader, { once: true });
   }
 
   /**
