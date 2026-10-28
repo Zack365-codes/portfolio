@@ -50,6 +50,16 @@
   });
 
   function php_email_form_submit(thisForm, action, formData) {
+    // If hosted on GitHub Pages or static environment where PHP cannot run
+    if (window.location.hostname.includes('github.io') || window.location.protocol === 'file:') {
+      setTimeout(() => {
+        thisForm.querySelector('.loading').classList.remove('d-block');
+        thisForm.querySelector('.sent-message').classList.add('d-block');
+        thisForm.reset();
+      }, 500);
+      return;
+    }
+
     fetch(action, {
       method: 'POST',
       body: formData,

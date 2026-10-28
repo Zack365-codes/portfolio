@@ -1179,11 +1179,9 @@ if (empty($projects)) {
             </div>
           </div>
 
-          <form action="process-contact.php" method="post" class="php-email-form">
+          <form action="process-contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
             <!-- Anti-spam Honeypot -->
             <input type="text" name="website_hp" style="display:none" tabindex="-1" autocomplete="off" />
-       
-          >
             <div class="row gy-4">
               <div class="col-md-6">
                 <input
