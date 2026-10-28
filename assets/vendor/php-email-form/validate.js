@@ -13,17 +13,21 @@
       event.preventDefault();
 
       let thisForm = this;
-
       let action = thisForm.getAttribute('action');
       let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
       
+      let loading = thisForm.querySelector('.loading');
+      let errorMsg = thisForm.querySelector('.error-message');
+      let sentMsg = thisForm.querySelector('.sent-message');
+
       if( ! action ) {
         displayError(thisForm, 'The form action property is not set!');
         return;
       }
-      thisForm.querySelector('.loading').classList.add('d-block');
-      thisForm.querySelector('.error-message').classList.remove('d-block');
-      thisForm.querySelector('.sent-message').classList.remove('d-block');
+
+      if (loading) { loading.classList.add('d-block'); loading.style.display = 'block'; }
+      if (errorMsg) { errorMsg.classList.remove('d-block'); errorMsg.style.display = 'none'; }
+      if (sentMsg) { sentMsg.classList.remove('d-block'); sentMsg.style.display = 'none'; }
 
       let formData = new FormData( thisForm );
 
@@ -41,7 +45,7 @@
             }
           });
         } else {
-          displayError(thisForm, 'The reCaptcha javascript API url is not loaded!')
+          displayError(thisForm, 'The reCaptcha javascript API url is not loaded!');
         }
       } else {
         php_email_form_submit(thisForm, action, formData);
@@ -50,11 +54,16 @@
   });
 
   function php_email_form_submit(thisForm, action, formData) {
+    let loading = thisForm.querySelector('.loading');
+    let errorMsg = thisForm.querySelector('.error-message');
+    let sentMsg = thisForm.querySelector('.sent-message');
+
     // If hosted on GitHub Pages or static environment where PHP cannot run
     if (window.location.hostname.includes('github.io') || window.location.protocol === 'file:') {
       setTimeout(() => {
-        thisForm.querySelector('.loading').classList.remove('d-block');
-        thisForm.querySelector('.sent-message').classList.add('d-block');
+        if (loading) { loading.classList.remove('d-block'); loading.style.display = 'none'; }
+        if (errorMsg) { errorMsg.classList.remove('d-block'); errorMsg.style.display = 'none'; }
+        if (sentMsg) { sentMsg.classList.add('d-block'); sentMsg.style.display = 'block'; }
         thisForm.reset();
       }, 500);
       return;
@@ -65,31 +74,41 @@
       body: formData,
       headers: {'X-Requested-With': 'XMLHttpRequest'}
     })
-    .then(response => {
+    .then(async response => {
+      const text = await response.text();
       if( response.ok ) {
-        return response.text();
+        return text;
       } else {
-        throw new Error(`${response.status} ${response.statusText} ${response.url}`); 
+        throw new Error(text ? text : `${response.status} ${response.statusText}`); 
       }
     })
     .then(data => {
-      thisForm.querySelector('.loading').classList.remove('d-block');
+      if (loading) { loading.classList.remove('d-block'); loading.style.display = 'none'; }
+      if (errorMsg) { errorMsg.classList.remove('d-block'); errorMsg.style.display = 'none'; }
       if (data.trim() == 'OK') {
-        thisForm.querySelector('.sent-message').classList.add('d-block');
+        if (sentMsg) { sentMsg.classList.add('d-block'); sentMsg.style.display = 'block'; }
         thisForm.reset(); 
       } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
+        throw new Error(data ? data : 'Form submission failed and no response from server'); 
       }
     })
     .catch((error) => {
-      displayError(thisForm, error);
+      displayError(thisForm, error.message ? error.message : error);
     });
   }
 
   function displayError(thisForm, error) {
-    thisForm.querySelector('.loading').classList.remove('d-block');
-    thisForm.querySelector('.error-message').innerHTML = error;
-    thisForm.querySelector('.error-message').classList.add('d-block');
+    let loading = thisForm.querySelector('.loading');
+    let errorMsg = thisForm.querySelector('.error-message');
+    let sentMsg = thisForm.querySelector('.sent-message');
+
+    if (loading) { loading.classList.remove('d-block'); loading.style.display = 'none'; }
+    if (sentMsg) { sentMsg.classList.remove('d-block'); sentMsg.style.display = 'none'; }
+    if (errorMsg) {
+      errorMsg.innerHTML = error;
+      errorMsg.classList.add('d-block');
+      errorMsg.style.display = 'block';
+    }
   }
 
 })();

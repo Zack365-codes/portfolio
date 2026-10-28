@@ -1218,17 +1218,18 @@ if (empty($projects)) {
                   class="form-control"
                   name="message"
                   rows="6"
+                  minlength="5"
                   placeholder="Tell me about your project..."
                   required
                 ></textarea>
               </div>
 
               <div class="col-md-12 text-center">
-                <div class="loading">Sending...</div>
+                <div class="loading" style="display: none;">Sending...</div>
 
-                <div class="error-message"></div>
+                <div class="error-message" style="display: none;"></div>
 
-                <div class="sent-message">
+                <div class="sent-message" style="display: none;">
                   Your message has been sent. Thank you!
                 </div>
 

@@ -2031,43 +2031,68 @@ body {
   transform: translateX(4px) rotate(-10deg);
 }
 
-.php-email-form .error-message {
+.php-email-form .loading,
+.php-email-form .error-message,
+.php-email-form .sent-message {
   display: none;
-  background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  text-align: center;
-  padding: 14px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
+}
+
+.php-email-form .loading.d-block,
+.php-email-form .error-message.d-block,
+.php-email-form .sent-message.d-block {
+  display: block !important;
 }
 
 .php-email-form .sent-message {
-  display: none;
-  color: #10b981;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #ffffff !important;
+  background: #198754 !important;
+  border: 1px solid #157347 !important;
   text-align: center;
-  padding: 14px;
+  padding: 16px 20px;
   margin-bottom: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 6px 20px rgba(25, 135, 84, 0.35);
+  animation: fadeInDown 0.3s ease;
+}
+
+.php-email-form .error-message {
+  color: #ffffff !important;
+  background: #dc3545 !important;
+  border: 1px solid #b02a37 !important;
+  text-align: center;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.35);
+  animation: fadeInDown 0.3s ease;
 }
 
 .php-email-form .loading {
-  display: none;
-  color: #00d4ff;
-  background: rgba(0, 212, 255, 0.1);
-  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: #07111f !important;
+  background: #00d4ff !important;
+  border: 1px solid #00b8dc !important;
   text-align: center;
-  padding: 14px;
+  padding: 14px 20px;
   margin-bottom: 20px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.3);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================================================
